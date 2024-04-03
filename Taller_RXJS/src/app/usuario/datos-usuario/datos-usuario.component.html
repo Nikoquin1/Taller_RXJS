@@ -1,0 +1,22 @@
+<h1>RXJS Example</h1>
+<div>
+  <form #form="ngForm" (ngSubmit)="searchUser()">
+    <label for="username">Username</label>
+    <input type="text" name="username" [(ngModel)]="txtUser" name="username">
+    <button type="submit">Buscar Usuario</button>
+  </form>
+
+  <ng-container *ngIf="usuario">
+    <h2>{{ usuario.firstName }} {{ usuario.lastName }}</h2>
+    <p>{{ usuario.email }}</p>
+    <p>{{ usuario.username }}</p>
+  </ng-container>
+
+  <ng-container *ngIf="!usuario">
+    <h2>Usuario no encontrado</h2>
+  </ng-container>
+
+
+
+</div>
+<app-post-datos [userId]="usuario?.id"></app-post-datos>
