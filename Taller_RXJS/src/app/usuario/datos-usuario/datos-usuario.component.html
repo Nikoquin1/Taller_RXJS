@@ -1,22 +1,43 @@
-<h1>RXJS Example</h1>
-<div>
-  <form #form="ngForm" (ngSubmit)="searchUser()">
-    <label for="username">Username</label>
-    <input type="text" name="username" [(ngModel)]="txtUser" name="username">
-    <button type="submit">Buscar Usuario</button>
-  </form>
-
-  <ng-container *ngIf="usuario">
-    <h2>{{ usuario.firstName }} {{ usuario.lastName }}</h2>
-    <p>{{ usuario.email }}</p>
-    <p>{{ usuario.username }}</p>
-  </ng-container>
-
-  <ng-container *ngIf="!usuario">
-    <h2>Usuario no encontrado</h2>
-  </ng-container>
-
-
-
+<div class="container-fluid text-center bg-danger text-white p-3 bx-shadow">
+  <h1>TALLER RXJS ~ NAMASPET</h1>
 </div>
-<app-post-datos [userId]="usuario?.id"></app-post-datos>
+<div>
+
+  <div class="d-flex justify-content-center p-3 text-dark w-120">
+    <form #form="ngForm" (ngSubmit)="searchUser()" class="form-group w-50">
+      <label for="username" class="col-form-label font-weight-bold ">Bucar Usuario:</label>
+      <input type="text" name="username" [(ngModel)]="txtUser" name="username" class="form-control" placeholder="Username">
+      <button type="submit" class="btn btn-info p-10 mt-3 font-weight-bold">Buscar Usuario</button>
+    </form>
+  </div>
+
+  <ng-container *ngIf="usuario"> <!--si el usuario existe, muestra los datos-->
+    <div class="d-flex border border-dark p-3 justify-content-around">
+      <img src="{{usuario.image}}" alt="" class="rounded-circle border border-dark border-10" width="300" height="300">
+      <div class="d-flex flex-column ml-3 align-items-center">
+        <h1 class="font-weight-bold">{{usuario.firstName}} {{usuario.lastName}}</h1>
+
+        <div class="p-2">
+          <h5 class="text-info"><strong class="text-danger">Username:</strong> {{usuario.username}}</h5>
+        </div>
+        <div class="p-2">
+          <h5 class="text-info"><strong class="text-danger">Email:</strong> {{usuario.email}}</h5>
+        </div>
+        <div class="p-2">
+          <h5 class="text-info"><strong class="text-danger">Edad:</strong> {{usuario.age}}</h5>
+        </div>
+        <div class="p-2">
+          <h5 class="text-info"><strong class="text-danger">Genero:</strong> {{usuario.gender}}</h5>
+        </div>
+        <div class="p-2">
+          <h5 class="text-info"><strong class="text-danger">Telefono:</strong> {{usuario.phone}}</h5>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>
+
+<ng-container *ngIf="usuario">
+  <app-post-datos [userId]="usuario.id"></app-post-datos>
+</ng-container>
+

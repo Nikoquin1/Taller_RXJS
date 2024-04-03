@@ -12,6 +12,6 @@ import { of } from 'rxjs';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Taller_RXJS';
+  title = 'Taller_RXJS ~ NAMASPET';
   
 }
