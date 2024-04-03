@@ -1,7 +1,5 @@
-import { Comment } from './comment.model'; 
-
 export interface Post {
-  comments: Comment[];
+  comentarios: Comment[];
   id: number;
   title: string;
   body: string;

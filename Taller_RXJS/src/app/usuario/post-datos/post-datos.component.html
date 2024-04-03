@@ -16,23 +16,19 @@
         <div class="col-12 mb-2">
             <div class="card">
                 <div class="card-header bg-danger text-white font-weight-bold">COMENTARIOS</div>
-                <div *ngFor="let comment of post.comments">
+                <div *ngFor="let comentario of comentariosPorPost[post.id]">
                     <div class="card-body">
                         <div>
                             <p class="font-weight-bold mr-1 text-info">ID:</p>
-                            <p>{{comment.id}}</p>
+                            <p>{{comentario.id}}</p>
+                        </div>
+                        <div>
+                            <p class="font-weight-bold mr-1 text-info">USUARIO DE QUIEN REALIZO EL COMENTARIO:</p>
+                            <p>{{comentario.user.username}}</p>
                         </div>
                         <div>
                             <p class="font-weight-bold mr-1 text-info">CUERPO:</p>
-                            <p>{{comment.body}}</p>
-                        </div>
-                        <div>
-                            <p class="font-weight-bold mr-1 text-info">POST ID:</p>
-                            <p>{{comment.postId}}</p>
-                        </div>
-                        <div>
-                            <p class="font-weight-bold mr-1 text-info">USUARIO:</p>
-                            <p>{{comment.userId}}</p>
+                            <p>{{comentario.body}}</p>
                         </div>
                     </div>
                 </div>

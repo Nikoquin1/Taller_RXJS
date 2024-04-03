@@ -17,6 +17,7 @@ export class PostDatosComponent {
   publicaciones: Post[] = [];
   ROOT_URL = 'https://dummyjson.com';
   iconoReacciones: string[] = [];
+  comentariosPorPost: { [key: number]: Comment[]; } = {};
 
   constructor(private http: HttpClient) {}
 
@@ -59,9 +60,10 @@ export class PostDatosComponent {
           }
         })
       )
-      .subscribe((allComments: Comment[][]) => {
-        allComments.forEach((comments, index) => {
-          console.log(`Comentarios para el post con ID ${this.publicaciones[index].id}:`, comments);
+      .subscribe((allComments: any[]) => {
+        allComments.forEach((comentarios, index) => {
+          console.log(`Comentarios para el post con ID ${this.publicaciones[index].id}:`, comentarios);
+          this.comentariosPorPost[this.publicaciones[index].id] = comentarios.comments;
         });
       });
   }
